@@ -1,4 +1,5 @@
 'use strict';
+const models = require('../models')
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
@@ -12,6 +13,13 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+      
+      const fs = require('fs')
+      const json = JSON.parse(fs.readFileSync("new_questions.json", 'utf8'))
+      return models.Question.bulkCreate(json)
+      
+      
+      
   },
 
   down: function (queryInterface, Sequelize) {
@@ -21,6 +29,8 @@ module.exports = {
 
       Example:
       return queryInterface.bulkDelete('Person', null, {});
+      
     */
+      return models.Question.sync({force: true})
   }
 };
