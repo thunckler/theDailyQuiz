@@ -6,6 +6,18 @@ var http = require('http'),
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true })); 
 
+//
+//var getQID = squel.select()
+//    .from('NumberLog')
+//    .field(QID)
+//    .where('phoneNumber', userId);
+
+//var getQuestion = squel.select()
+//    .from('Questions')
+//    .field(answer)
+//    .where('QID', userId);
+//
+
 app.get('/', function(req, res) {
     var twilio = require('twilio');
     var twiml = new twilio.TwimlResponse();
