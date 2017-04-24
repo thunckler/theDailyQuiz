@@ -1,14 +1,7 @@
-// Load app dependencies
 var http = require('http'),
-    path = require('path'),
     express = require('express'),
     twilio = require('twilio'),
     bodyParser = require('body-parser');
-
-// Load configuration information from system environment variables.
-var TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID,
-    TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN,
-    TWILIO_NUMBER = process.env.TWILIO_NUMBER;
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true })); 
@@ -41,6 +34,6 @@ app.post('/', function(req, res) {
     res.end(twiml.toString());
 });
 
-http.createServer(app).listen(3000, function () {
-    console.log("Express server listening on port 3000");
+http.createServer(app).listen(1337, function () {
+    console.log("Express server listening on port 1337");
 });
