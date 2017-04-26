@@ -18,6 +18,7 @@ var twilio = require('twilio');
     order: [Sequelize.fn( 'RANDOM' ),]
         }).then(function(question) {
             var twiml = new twilio.TwimlResponse();
+            console.log(twiml);
             twiml.message("Your Question is:\n" + question.question);
         })
     } else {
@@ -30,5 +31,6 @@ var twilio = require('twilio');
 
 http.createServer(app).listen(1337, function () {
     console.log("Express server listening on port 1337");
+
 });
 

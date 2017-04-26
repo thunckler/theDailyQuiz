@@ -1,10 +1,7 @@
 {
   "development": {
-    "username": "quiz_user",
-    "password": null,
-    "database": "quiz_dev",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "sqlite",
+    "storage": "./quiz_dev.sqlite"
   },
   "test": {
     "username": "root",
