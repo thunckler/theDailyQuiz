@@ -18,9 +18,10 @@ app.post('/', function(req, res) {
     models.Question.find({
     order: [Sequelize.fn( 'RANDOM' ),]
         }).then(function(question) {
-            console.log(question)
-            twiml.message("Category:\n" + question.category + "\nYour Question is:\n" + question.question);
+            
+            twiml.message("Category:\n\n" + question.category + "\n \nQuestion:\n\n" + question.question);
             res.end(twiml.toString());
+            console.log(twiml);
         })
     } else {
         twiml.message('Try again Human');
