@@ -24,8 +24,18 @@ app.post('/', function(req, res) {
             
             twiml.message("Category:\n\n" + question.category + "\n \nQuestion:\n\n" + question.question);
             res.end(twiml.toString());
+            
         })
-    } else {
+    }
+    //  else if (models.Message.find(questionId) == Question.id) 
+    //     {
+    //     twiml.message('Nice Try, Human');
+    //     res.end(twiml.toString());
+    //     models.Message.destroy();
+    //     }
+        else
+        {
+            console.log(models.Message);
         twiml.message('Try again Human');
         res.end(twiml.toString());
     }
