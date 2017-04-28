@@ -20,15 +20,10 @@ app.post('/', function(req, res) {
     models.Question.find({
     order: [Sequelize.fn( 'RANDOM' ),]
         }).then(function(question) {
+            models.Message.create({questionId: question.id, number: req.body.From});
             
             twiml.message("Category:\n\n" + question.category + "\n \nQuestion:\n\n" + question.question);
             res.end(twiml.toString());
-            console.log(question);
-            // Save Phone Number
-
-            // Save Forgien Key
-
-            
         })
     } else {
         twiml.message('Try again Human');
