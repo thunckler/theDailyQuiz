@@ -2,10 +2,12 @@ var http = require('http'),
     express = require('express'),
     twilio = require('twilio'),
     bodyParser = require('body-parser'),
+    cookieParser = require('cookie-parser'),
     Sequelize = require('sequelize');
 
 var app = express();
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 const models = require('./models')
 
@@ -21,7 +23,12 @@ app.post('/', function(req, res) {
             
             twiml.message("Category:\n\n" + question.category + "\n \nQuestion:\n\n" + question.question);
             res.end(twiml.toString());
-            console.log(twiml);
+            console.log(question);
+            // Save Phone Number
+
+            // Save Forgien Key
+
+            
         })
     } else {
         twiml.message('Try again Human');
